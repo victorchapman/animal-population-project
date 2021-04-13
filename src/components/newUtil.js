@@ -43,7 +43,7 @@ export const calcLitterSize2 = (
     // console.log('Number of cats', AnimalArray.length - 1);
     time += 1;
   }
-  return 'Hello', AnimalArray.length - 1;
+  return AnimalArray.length - 1;
 };
 
 console.log(calcLitterSize2(4, 4, 2, 6, 18));
