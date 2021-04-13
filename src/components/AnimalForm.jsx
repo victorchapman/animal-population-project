@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { calcLitterSize2 } from './newUtil';
 import '../global.css';
 
