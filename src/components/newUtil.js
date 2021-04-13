@@ -15,7 +15,13 @@ class Animal {
   }
 }
 
-const calcLitterSize2 = (momAge, minAge, refrTime, litterSize, months) => {
+export const calcLitterSize2 = (
+  momAge,
+  minAge,
+  refrTime,
+  litterSize,
+  months
+) => {
   const AnimalArray = [];
 
   let time = 0;
@@ -33,10 +39,13 @@ const calcLitterSize2 = (momAge, minAge, refrTime, litterSize, months) => {
       }
       animal.age += 1;
     });
-    console.log('Month', time + 1);
-    console.log('Number of cats', AnimalArray.length - 1);
+    // console.log('Month', time + 1);
+    // console.log('Number of cats', AnimalArray.length - 1);
     time += 1;
   }
+  return 'Hello', AnimalArray.length - 1;
 };
 
 console.log(calcLitterSize2(4, 4, 2, 6, 18));
+
+calcLitterSize2(4, 4, 2, 6, 18);

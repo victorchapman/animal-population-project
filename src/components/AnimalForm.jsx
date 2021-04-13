@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { calcLitterSize } from './util';
+import { calcLitterSize2 } from './newUtil';
 
 const AnimalForm = () => {
   const [litterSize, setLitterSize] = useState(0);
@@ -11,7 +11,7 @@ const AnimalForm = () => {
   };
 
   const getLitterSize = () => {
-    const response = calcLitterSize(4, 0, 6, month, 2);
+    const response = calcLitterSize2(4, 4, 2, 6, month);
     console.log(response);
     setLitterSize(response);
   };
