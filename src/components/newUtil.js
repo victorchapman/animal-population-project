@@ -21,13 +21,7 @@ class Animal {
   }
 }
 
-export const calcLitterSize2 = (
-  momAge,
-  minAge,
-  refrTime,
-  litterSize,
-  months
-) => {
+const calcLitterSize2 = (momAge, minAge, refrTime, litterSize, months) => {
   const AnimalArray = [];
 
   let time = 0;
@@ -37,9 +31,10 @@ export const calcLitterSize2 = (
   while (time < months) {
     AnimalArray.forEach((animal) => {
       if (animal.age >= minAge) {
+        animal.decreaseRefrTime();
         if (animal.decreaseRefrTime() === 'litter ready') {
           for (let i = 0; i < litterSize; i++) {
-            AnimalArray.push(new Animal(1, minAge, refrTime));
+            AnimalArray.push(new Animal(0, minAge, refrTime));
           }
         }
       }
@@ -47,8 +42,9 @@ export const calcLitterSize2 = (
     });
     // console.log('Month', time + 1);
     // console.log('Number of cats', AnimalArray.length - 1);
-    time += 1;
+    console.log('Month', time + 1);
     console.log('Amount of cats', AnimalArray.length - 1);
+    time += 1;
   }
   return AnimalArray.length - 1;
 };
