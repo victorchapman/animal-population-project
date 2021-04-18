@@ -5,15 +5,15 @@ class Animal {
     this.refrTime = refrTime;
   }
 
-  createLitter(litterSize, arr) {
+  createLitter(litterSize, AnimalArray) {
     for (let i = 0; i < litterSize; i++) {
-      arr.push(new Animal(0, 2, 2));
+      AnimalArray.push(new Animal(0, 2, 2));
     }
   }
-  decreasePregTime(litterSize, arr) {
+  decreasePregTime(litterSize, AnimalArray) {
     if (this.pregTime === 0) {
       this.pregTime = this.refrTime;
-      this.createLitter(litterSize, arr);
+      this.createLitter(litterSize, AnimalArray);
     } else {
       this.pregTime -= 1;
     }

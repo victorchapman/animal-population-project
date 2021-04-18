@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { calcLitterSize2 } from './newUtil';
+import { calcLitterSize3 } from './util3';
 import '../global.css';
 
 const animalArray = [
@@ -36,7 +36,7 @@ const AnimalForm = () => {
   };
 
   const getLitterSize = () => {
-    const response = calcLitterSize2(...animalType[1], month);
+    const response = calcLitterSize3(...animalType[1], month);
     console.log(response);
     setLitterSize(response);
   };
