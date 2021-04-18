@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { calcLitterSize3 } from './util3';
 import '../global.css';
 
+//array with different animals, which include their reproductive variables, emoji, and recommened input
+//to save RAM, because this project uses a lot of it.
 const animalArray = [
   ['Cat', [4, 4, 2, 6], '😺', '1-21'],
   ['Sperm Whale', [108, 108, 16, 1], '🐋', '1-530'],
@@ -9,8 +11,9 @@ const animalArray = [
   ['Chimpanzee', [156, 156, 36, 1], '🐵', '1-900'],
   ['Bald Eagle', [48, 48, 12, 3], '🦅', '1-200'],
 ];
-
+//React (Javascript Framework) Hook where you can have front end code and logic
 const AnimalForm = () => {
+  //three pieces of "the state"
   const [animalType, setAnimalType] = useState(animalArray[0]);
   const [litterSize, setLitterSize] = useState(0);
   const [month, setMonth] = useState(0);
