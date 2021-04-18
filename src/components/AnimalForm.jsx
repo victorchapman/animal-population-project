@@ -4,9 +4,10 @@ import '../global.css';
 
 const animalArray = [
   ['Cat', [4, 4, 2, 6], '😺', '1-21'],
-  ['Sperm Whale', [216, 216, 18, 1], '🐋', '1-500'],
-  ['Rat', [1, 1, 2, 12], '🐀', '1-9'],
-  ['Chimpanzee', [156, 156, 36, 1], '🐵', '1-400'],
+  ['Sperm Whale', [108, 108, 16, 1], '🐋', '1-530'],
+  ['Rat', [1, 1, 2, 12], '🐀', '1-7'],
+  ['Chimpanzee', [156, 156, 36, 1], '🐵', '1-900'],
+  ['Bald Eagle', [48, 48, 12, 3], '🦅', '1-200'],
 ];
 
 const AnimalForm = () => {
@@ -32,6 +33,9 @@ const AnimalForm = () => {
     if (e.target.value === 'Chimpanzee') {
       setAnimalType(animalArray[3]);
     }
+    if (e.target.value === 'Eagle') {
+      setAnimalType(animalArray[4]);
+    }
     setLitterSize(0);
   };
 
@@ -52,6 +56,7 @@ const AnimalForm = () => {
         <option value="Whale">Sperm Whale</option>
         <option value="Rat">Rat</option>
         <option value="Chimpanzee">Chimpanzee</option>
+        <option value="Eagle">Eagle</option>
       </select>
       <p>
         Enter amount of months <span>between {animalType[3]}:</span>

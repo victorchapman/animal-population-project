@@ -5,15 +5,15 @@ class Animal {
     this.refrTime = refrTime;
   }
 
-  createLitter(litterSize, AnimalArray) {
+  createLitter(litterSize, AnimalArray, refrTime) {
     for (let i = 0; i < litterSize; i++) {
-      AnimalArray.push(new Animal(0, 2, 2));
+      AnimalArray.push(new Animal(0, refrTime, refrTime));
     }
   }
-  decreasePregTime(litterSize, AnimalArray) {
+  decreasePregTime(litterSize, AnimalArray, refrTime) {
     if (this.pregTime === 0) {
       this.pregTime = this.refrTime;
-      this.createLitter(litterSize, AnimalArray);
+      this.createLitter(litterSize, AnimalArray, refrTime);
     } else {
       this.pregTime -= 1;
     }
@@ -34,7 +34,7 @@ export const calcLitterSize3 = (
   while (time < months) {
     for (const animal of AnimalArray) {
       if (animal.age >= minAge) {
-        animal.decreasePregTime(litterSize, AnimalArray);
+        animal.decreasePregTime(litterSize, AnimalArray, refrTime);
       }
       animal.age += 1;
     }
