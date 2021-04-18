@@ -1,40 +1,44 @@
 class Animal {
-  constructor(age, minAge, refrTime, pregTime) {
+  constructor(age, pregTime, refrTime) {
     this.age = age;
-    this.minAge = minAge;
-    this.refrTime = refrTime;
     this.pregTime = pregTime;
+    this.refrTime = refrTime;
   }
 
-  createLitter() {
+  createLitter(litterSize, arr) {
     for (let i = 0; i < litterSize; i++) {
-      AnimalArray.push(new Animal(0, 4, 2, 3));
+      arr.push(new Animal(0, 2, 2));
     }
   }
-  decreaseRefrTime() {
-    if (this.refrTime === 0) {
-      this.refrTime = this.pregTime;
-      this.createLitter();
+  decreasePregTime(litterSize, arr) {
+    if (this.pregTime === 0) {
+      this.pregTime = this.refrTime;
+      this.createLitter(litterSize, arr);
     } else {
-      this.refrTime -= 1;
+      this.pregTime -= 1;
     }
   }
 }
 
-const AnimalArray = [];
-let time = 0;
-const months = 18;
-const litterSize = 6;
-const mother = new Animal(4, 4, 0, 3);
-AnimalArray.push(mother);
-
-while (time < months) {
-  for (const animal of AnimalArray) {
-    if (animal.age >= animal.minAge) {
-      animal.decreaseRefrTime();
+export const calcLitterSize3 = (
+  momAge,
+  minAge,
+  refrTime,
+  litterSize,
+  months
+) => {
+  const AnimalArray = [];
+  let time = 0;
+  const mother = new Animal(momAge, 0, refrTime);
+  AnimalArray.push(mother);
+  while (time < months) {
+    for (const animal of AnimalArray) {
+      if (animal.age >= minAge) {
+        animal.decreasePregTime(litterSize, AnimalArray);
+      }
+      animal.age += 1;
     }
-    animal.age += 1;
+    time += 1;
   }
-  time += 1;
-}
-console.log(AnimalArray.length - 1);
+  return AnimalArray.length - 1;
+};

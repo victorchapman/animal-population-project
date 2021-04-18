@@ -3,7 +3,7 @@ import { calcLitterSize2 } from './newUtil';
 import '../global.css';
 
 const animalArray = [
-  ['Cat', [4, 4, 3, 6], '😺', '1-21'],
+  ['Cat', [4, 4, 2, 6], '😺', '1-21'],
   ['Sperm Whale', [216, 216, 18, 1], '🐋', '1-500'],
   ['Rat', [1, 1, 2, 12], '🐀', '1-9'],
   ['Chimpanzee', [156, 156, 36, 1], '🐵', '1-400'],
@@ -36,10 +36,7 @@ const AnimalForm = () => {
   };
 
   const getLitterSize = () => {
-    const response = calcLitterSize2(
-      ...animalType[1],
-      month + animalType[1][2]
-    );
+    const response = calcLitterSize2(...animalType[1], month);
     console.log(response);
     setLitterSize(response);
   };
