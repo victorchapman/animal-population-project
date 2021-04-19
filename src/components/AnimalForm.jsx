@@ -14,15 +14,21 @@ const animalArray = [
 //React (Javascript Framework) Hook where you can have front end code and logic
 const AnimalForm = () => {
   //three pieces of "the state"
-  const [animalType, setAnimalType] = useState(animalArray[0]);
-  const [litterSize, setLitterSize] = useState(0);
-  const [month, setMonth] = useState(0);
 
+  //animal type is where I house the type of animal from the animal array.
+  //The default is set to cat which is at index 0
+  const [animalType, setAnimalType] = useState(animalArray[0]);
+  //The litterSize is the amount of descendants produced from the function
+  const [litterSize, setLitterSize] = useState(0);
+  //The month amount is a user inputed value that is sent to the function
+  const [month, setMonth] = useState(0);
+  //The update months function just sets the amount of months to the amount the user put in
   const updateMonths = (e) => {
     setMonth(e.target.value);
     console.log(month);
   };
-
+  //This function just sets the animal type depending on what animal
+  //you selected.
   const updateAnimal = (e) => {
     if (e.target.value === 'Cat') {
       setAnimalType(animalArray[0]);
@@ -39,9 +45,10 @@ const AnimalForm = () => {
     if (e.target.value === 'Eagle') {
       setAnimalType(animalArray[4]);
     }
+    //resets litter size to 0 when user puts a value in
     setLitterSize(0);
   };
-
+  //Gets the descendants/litter size from function
   const getLitterSize = () => {
     const response = calcLitterSize3(...animalType[1], month);
     console.log(response);
@@ -71,15 +78,10 @@ const AnimalForm = () => {
       />
       <button onClick={getLitterSize}>See Descendants</button>
       <p>Amount of Descendants: {litterSize}</p>
-      {/* <div>
-        {animalEmojiArray.map((cat) => {
-          return <span>{cat}</span>;
-        })}
-      </div> */}
       <p>Visulatization:</p>
       <div>
         {[...Array(litterSize)].map((element, index) => (
-          <span>{animalType[2]}</span> // ok this should work
+          <span>{animalType[2]}</span>
         ))}
       </div>
     </div>
